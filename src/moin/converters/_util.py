@@ -90,7 +90,7 @@ class _Iter(object):
             return self.__prepend.pop(0)
 
         try:
-            return self.__parent.next()
+            return next(self.__parent)
         except StopIteration:
             self.__finished = True
             raise

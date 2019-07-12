@@ -503,11 +503,11 @@ class Converter(object):
                 ret = u"{{{{{{#!{0}".format(type[1].split(u'=')[1])
                 if len(elem) and elem_it.next().tag.name == "arguments":
                     args = []
-                    for arg in iter(elem).next():
+                    for arg in next(iter(elem)):
                         if arg.tag.name == "argument":
                             args.append(u"{0}=\"{1}\"".format(arg.get(moin_page.name, u""), u' '.join(arg.itertext())))
                     ret = u'{0}({1})'.format(ret, u' '.join(args))
-                    elem = elem_it.next()
+                    elem = next(elem_it)
                 ret = u"{0}\n{1}\n}}}}}}\n".format(ret, u' '.join(elem.itertext()))
                 return ret
         return unescape(elem.get(moin_page.alt, u'')) + u"\n"
