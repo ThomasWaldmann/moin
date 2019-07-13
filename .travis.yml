@@ -3,15 +3,15 @@ sudo: false
 
 matrix:
     include:
-        - python: 2.7
+        - python: 3.5
           os: linux
           dist: xenial
-          env: TOXENV=py27
-        - python: pypy
+          env: TOXENV=py35
+        - python: pypy3
           os: linux
           dist: xenial
           env: TOXENV=pypy
-        - python: 2.7
+        - python: 3.5
           os: linux
           dist: xenial
           env: TOXENV=flake8
