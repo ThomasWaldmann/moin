@@ -92,6 +92,8 @@ class RegistryContent(RegistryBase):
                 # Within the registry, content_type is sorted in descending
                 # order (more specific first) while priority is in ascending
                 # order (smaller first).
+                assert self.content_type is not None
+                assert other.content_type is not None
                 return (other.content_type, self.priority) < (self.content_type, other.priority)
             return NotImplemented
 
@@ -104,6 +106,7 @@ class RegistryContent(RegistryBase):
         """
         Register a contenttype entry and optionally add it to a specific group.
         """
+        assert e.content_type is not None
         # If group is specified and contenttype is not a wildcard one
         if group and e.content_type.type and e.content_type.subtype:
             if group not in self.groups:
