@@ -94,6 +94,8 @@ class RegistryContent(RegistryBase):
                 # order (smaller first).
                 assert self.content_type is not None
                 assert other.content_type is not None
+                assert isinstance(self.priority, int)
+                assert isinstance(other.priority, int)
                 return (other.content_type, self.priority) < (self.content_type, other.priority)
             return NotImplemented
 
